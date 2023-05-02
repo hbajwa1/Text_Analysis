@@ -47,3 +47,9 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# .DS_store files
+.DS_Store
+
+# README RMarkdown file
+README.Rmd
