@@ -30,6 +30,13 @@ long list of occupations in the OEWS dataset is cumbersome and creates
 chances of error and bias, I decided to use text analysis in `R` to
 create this classification.
 
+## Text Analysis
+
+The OES data contains information on occupations for all NAICS
+industries across all metropolitan regions in the U.S. I want to analyze
+the `OCC_TITLE` variable in the dataset and isolate Construction and
+Real Estate job types only. I use `tidytext` package for this analysis.
+
 ``` r
 oes_data <- read.csv("Data/oes_data.csv")
 
@@ -37,7 +44,13 @@ occupation_text <- data.frame(oes_data$OCC_TITLE)
 
 text_data_tokens <- occupation_text %>% 
   unnest_tokens(word, oes_data.OCC_TITLE)
+```
 
+I split the `occupations` variable from the OES data into text data
+tokens to analyze them using `tidytext` package in R. The text tokens
+look like this at this stage:
+
+``` r
 head(text_data_tokens)
 ```
 
