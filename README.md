@@ -31,13 +31,20 @@ chances of error and bias, I decided to use text analysis in `R` to
 create this classification.
 
 ``` r
-summary(cars)
+oes_data <- read.csv("Data/oes_data.csv")
+
+occupation_text <- data.frame(oes_data$OCC_TITLE)
+
+text_data_tokens <- occupation_text %>% 
+  unnest_tokens(word, oes_data.OCC_TITLE)
+
+head(text_data_tokens)
 ```
 
-    ##      speed           dist       
-    ##  Min.   : 4.0   Min.   :  2.00  
-    ##  1st Qu.:12.0   1st Qu.: 26.00  
-    ##  Median :15.0   Median : 36.00  
-    ##  Mean   :15.4   Mean   : 42.98  
-    ##  3rd Qu.:19.0   3rd Qu.: 56.00  
-    ##  Max.   :25.0   Max.   :120.00
+    ##          word
+    ## 1         all
+    ## 2 occupations
+    ## 3  management
+    ## 4 occupations
+    ## 5       chief
+    ## 6  executives
