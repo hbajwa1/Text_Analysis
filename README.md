@@ -32,32 +32,29 @@ create this classification.
 
 ## Text Analysis
 
-The OES data contains information on occupations for all NAICS
+The OCC data contains information on occupations for all NAICS
 industries across all metropolitan regions in the U.S. I want to analyze
 the `OCC_TITLE` variable in the dataset and isolate Construction and
-Real Estate job types only. I use `tidytext` package for this analysis.
+Real Estate job types only.
 
 ``` r
-oes_data <- read.csv("Data/oes_data.csv")
-
-occupation_text <- data.frame(oes_data$OCC_TITLE)
-
-text_data_tokens <- occupation_text %>% 
-  unnest_tokens(word, oes_data.OCC_TITLE)
+text_data <- read_csv("Data/occupation_titles.csv.zip", show_col_types = FALSE)
 ```
 
-I split the `occupations` variable from the OES data into text data
-tokens to analyze them using `tidytext` package in R. The text tokens
-look like this at this stage:
+    ## Multiple files in zip: reading 'occupation_titles.csv'
+    ## New names:
 
 ``` r
-head(text_data_tokens)
-```
+# Sample data
+occupation_titles <- text_data$oes_master.OCC_TITLE
 
-    ##          word
-    ## 1         all
-    ## 2 occupations
-    ## 3  management
-    ## 4 occupations
-    ## 5       chief
-    ## 6  executives
+# Define regular expressions to match Construction sector occupation titles
+construction_regex <- "(?i)(Architect|Building Contractor|Building Inspector|Building Maintenance Technician|Building Surveyor|Carpenter|Concrete Finisher|Construction Equipment Operator|Construction Laborer|Construction Manager|Construction Project Manager|Construction Superintendent|Crane Operator|Drywaller|Electrician|Environmental Engineer|Estimator|Fire Sprinkler Installer|Flooring Installer|General Contractor|Glazier|Heavy Equipment Operator|HVAC Technician|Interior Designer|Ironworker|Landscape Architect|Landscaper|Mason|Painter|Pipefitter|Plumber|Project Engineer|Real Estate Agent|Roofing Contractor|Roofer|Scaffolder|Sheet Metal Worker|Structural Engineer|Surveyor|Tiler|Welder)"
+
+
+# Use grep function to extract occupation titles that match the Construction sector regex
+construction_occupations <- unique(grep(construction_regex, occupation_titles, value = TRUE))
+
+# View the extracted occupation titles
+#construction_occupations
+```
