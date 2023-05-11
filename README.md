@@ -37,38 +37,23 @@ industries across all metropolitan regions in the U.S. I want to analyze
 the `OCC_TITLE` variable in the dataset and isolate Construction and
 Real Estate job types only.
 
-``` r
-# Data Import
-text_data <- read_csv("Data/occupation_titles.csv.zip", show_col_types = FALSE)
-```
-
-    ## Multiple files in zip: reading 'occupation_titles.csv'
-    ## New names:
-
-``` r
-# Sample data
-occupation_titles <- text_data$oes_master.OCC_TITLE
-```
+- Dataset with occupation titles: `occupation_titles.csv.zip`
+- Variable with occupation titles: `oes_master.OCC_TITLE`
 
 I used ChatGPT to create an exhaustive list of occupation titles
 associated with the Construction sector. Then, I use `regex` function in
-R to match construction sector tiltes from the `occupation_titles`
+R to match construction sector titles from the `occupation_titles`
 dataset.
 
 ``` r
 # Define regular expressions to match Construction sector occupation titles
 construction_regex <- "(?i)(Architect|Building Contractor|Building Inspector|Building Maintenance Technician|Building Surveyor|Carpenter|Concrete Finisher|Construction Equipment Operator|Construction Laborer|Construction Manager|Construction Project Manager|Construction Superintendent|Crane Operator|Drywaller|Electrician|Environmental Engineer|Estimator|Fire Sprinkler Installer|Flooring Installer|General Contractor|Glazier|Heavy Equipment Operator|HVAC Technician|Interior Designer|Ironworker|Landscape Architect|Landscaper|Mason|Painter|Pipefitter|Plumber|Project Engineer|Real Estate Agent|Roofing Contractor|Roofer|Scaffolder|Sheet Metal Worker|Structural Engineer|Surveyor|Tiler|Welder)"
 
-
 # Use grep function to extract occupation titles that match the Construction sector regex
 construction_occupations <- unique(grep(construction_regex, occupation_titles, value = TRUE))
-
-# View the extracted occupation titles
-#construction_occupations
-
-# Display the matched occupations in a table
-knitr::kable(data.frame(construction_occupations), col.names = c("Construction Occupations"))
 ```
+
+## List of Occupation Titles in the Construction Sector
 
 | Construction Occupations                                                   |
 |:---------------------------------------------------------------------------|
