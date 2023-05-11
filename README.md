@@ -47,7 +47,7 @@ dataset.
 
 ``` r
 # Define regular expressions to match Construction sector occupation titles
-construction_regex <- "(?i)(Architect|Building Contractor|Building Inspector|Building Maintenance Technician|Building Surveyor|Carpenter|Concrete Finisher|Construction Equipment Operator|Construction Laborer|Construction Manager|Construction Project Manager|Construction Superintendent|Crane Operator|Drywaller|Electrician|Environmental Engineer|Estimator|Fire Sprinkler Installer|Flooring Installer|General Contractor|Glazier|Heavy Equipment Operator|HVAC Technician|Interior Designer|Ironworker|Landscape Architect|Landscaper|Mason|Painter|Pipefitter|Plumber|Project Engineer|Real Estate Agent|Roofing Contractor|Roofer|Scaffolder|Sheet Metal Worker|Structural Engineer|Surveyor|Tiler|Welder)"
+construction_regex <- "(?i)(Architect|Building Contractor|Building Inspector|Building Maintenance Technician|Building Surveyor|Carpenter|Concrete Finisher|Construction Equipment Operator|Construction Laborer|Construction Manager|Construction Project Manager|Construction Superintendent|Crane Operator|Drywall|Electrician|Environmental Engineer|Estimator|Fire Sprinkler Installer|Floor Installer|General Contractor|Glazier|Heavy Equipment Operator|HVAC Technician|Interior Designer|Ironworker|Landscape Architect|Landscaper|Mason|Painter|Pipefitter|Plumber|Project Engineer|Real Estate Agent|Roofing Contractor|Roofer|Scaffolder|Sheet Metal Worker|Structural Engineer|Surveyor|Tiler|Welder|Boilermakers|Carpet Installers|Elevator|Fence|Floor Layers|Floor Sanders and Finishers|Hazardous Materials Removal Workers|Highway Maintenance Workers|Insulation Workers|Paving, Surfacing, and Tamping Equipment Operators|Paperhangers|Pile Driver Operators|Pipelayers|Rail-Track Laying and Maintenance Equipment Operators|Reinforcing Iron and Rebar Workers|Rock Splitters, Quarry|Septic Tank Servicers and Sewer Pipe Cleaners|Solar Photovoltaic Installers|Structural Iron and Steel Workers|Tapers|Terrazzo Workers and Finishers|Tile and Marble Setters|Tile and Stone Setters)"
 
 # Use grep function to extract occupation titles that match the Construction sector regex
 construction_occupations <- unique(grep(construction_regex, occupation_titles, value = TRUE))
@@ -55,47 +55,79 @@ construction_occupations <- unique(grep(construction_regex, occupation_titles, v
 
 ## List of Occupation Titles in the Construction Sector
 
-| Construction Occupations                                                   |
-|:---------------------------------------------------------------------------|
-| Construction Managers                                                      |
-| Architectural and Engineering Managers                                     |
-| Cost Estimators                                                            |
-| Computer Network Architects                                                |
-| Architecture and Engineering Occupations                                   |
-| Architects, Except Landscape and Naval                                     |
-| Landscape Architects                                                       |
-| Surveyors                                                                  |
-| Environmental Engineers                                                    |
-| Architectural and Civil Drafters                                           |
-| Environmental Engineering Technicians                                      |
-| Architecture Teachers, Postsecondary                                       |
-| Fine Artists, Including Painters, Sculptors, and Illustrators              |
-| Interior Designers                                                         |
-| Brickmasons and Blockmasons                                                |
-| Stonemasons                                                                |
-| Carpenters                                                                 |
-| Cement Masons and Concrete Finishers                                       |
-| Construction Laborers                                                      |
-| Operating Engineers and Other Construction Equipment Operators             |
-| Electricians                                                               |
-| Glaziers                                                                   |
-| Painters, Construction and Maintenance                                     |
-| Plumbers, Pipefitters, and Steamfitters                                    |
-| Plasterers and Stucco Masons                                               |
-| Roofers                                                                    |
-| Sheet Metal Workers                                                        |
-| Helpers–Brickmasons, Blockmasons, Stonemasons, and Tile and Marble Setters |
-| Helpers–Carpenters                                                         |
-| Helpers–Electricians                                                       |
-| Helpers–Painters, Paperhangers, Plasterers, and Stucco Masons              |
-| Helpers–Pipelayers, Plumbers, Pipefitters, and Steamfitters                |
-| Construction and Building Inspectors                                       |
-| Refractory Materials Repairers, Except Brickmasons                         |
-| Welders, Cutters, Solderers, and Brazers                                   |
-| Cabinetmakers and Bench Carpenters                                         |
-| Painters, Transportation Equipment                                         |
-| Helpers–Roofers                                                            |
-| Marine Engineers and Naval Architects                                      |
-| Database Administrators and Architects                                     |
-| Environmental Engineering Technologists and Technicians                    |
-| Database Architects                                                        |
+Using this text analysis, I was able to extract relevant job positions
+with a **success rate of 81%**. The list of successful extracted
+occupation titles are below:
+
+| Construction Occupations                                                                             |
+|:-----------------------------------------------------------------------------------------------------|
+| Construction Managers                                                                                |
+| Architectural and Engineering Managers                                                               |
+| Cost Estimators                                                                                      |
+| Computer Network Architects                                                                          |
+| Architecture and Engineering Occupations                                                             |
+| Architects, Except Landscape and Naval                                                               |
+| Landscape Architects                                                                                 |
+| Surveyors                                                                                            |
+| Environmental Engineers                                                                              |
+| Architectural and Civil Drafters                                                                     |
+| Environmental Engineering Technicians                                                                |
+| Architecture Teachers, Postsecondary                                                                 |
+| Fine Artists, Including Painters, Sculptors, and Illustrators                                        |
+| Interior Designers                                                                                   |
+| Boilermakers                                                                                         |
+| Brickmasons and Blockmasons                                                                          |
+| Stonemasons                                                                                          |
+| Carpenters                                                                                           |
+| Carpet Installers                                                                                    |
+| Floor Layers, Except Carpet, Wood, and Hard Tiles                                                    |
+| Floor Sanders and Finishers                                                                          |
+| Tile and Marble Setters                                                                              |
+| Cement Masons and Concrete Finishers                                                                 |
+| Terrazzo Workers and Finishers                                                                       |
+| Construction Laborers                                                                                |
+| Paving, Surfacing, and Tamping Equipment Operators                                                   |
+| Operating Engineers and Other Construction Equipment Operators                                       |
+| Drywall and Ceiling Tile Installers                                                                  |
+| Tapers                                                                                               |
+| Electricians                                                                                         |
+| Glaziers                                                                                             |
+| Insulation Workers, Floor, Ceiling, and Wall                                                         |
+| Insulation Workers, Mechanical                                                                       |
+| Painters, Construction and Maintenance                                                               |
+| Paperhangers                                                                                         |
+| Pipelayers                                                                                           |
+| Plumbers, Pipefitters, and Steamfitters                                                              |
+| Plasterers and Stucco Masons                                                                         |
+| Reinforcing Iron and Rebar Workers                                                                   |
+| Roofers                                                                                              |
+| Sheet Metal Workers                                                                                  |
+| Structural Iron and Steel Workers                                                                    |
+| Solar Photovoltaic Installers                                                                        |
+| Helpers–Brickmasons, Blockmasons, Stonemasons, and Tile and Marble Setters                           |
+| Helpers–Carpenters                                                                                   |
+| Helpers–Electricians                                                                                 |
+| Helpers–Painters, Paperhangers, Plasterers, and Stucco Masons                                        |
+| Helpers–Pipelayers, Plumbers, Pipefitters, and Steamfitters                                          |
+| Construction and Building Inspectors                                                                 |
+| Elevator Installers and Repairers                                                                    |
+| Fence Erectors                                                                                       |
+| Hazardous Materials Removal Workers                                                                  |
+| Highway Maintenance Workers                                                                          |
+| Septic Tank Servicers and Sewer Pipe Cleaners                                                        |
+| Refractory Materials Repairers, Except Brickmasons                                                   |
+| Coil Winders, Tapers, and Finishers                                                                  |
+| Welders, Cutters, Solderers, and Brazers                                                             |
+| Cabinetmakers and Bench Carpenters                                                                   |
+| Painters, Transportation Equipment                                                                   |
+| Helpers–Roofers                                                                                      |
+| Marine Engineers and Naval Architects                                                                |
+| Rail-Track Laying and Maintenance Equipment Operators                                                |
+| Rock Splitters, Quarry                                                                               |
+| Electrical, Electronic, and Electromechanical Assemblers, Except Coil Winders, Tapers, and Finishers |
+| Database Administrators and Architects                                                               |
+| Environmental Engineering Technologists and Technicians                                              |
+| Tile and Stone Setters                                                                               |
+| Elevator and Escalator Installers and Repairers                                                      |
+| Pile Driver Operators                                                                                |
+| Database Architects                                                                                  |
