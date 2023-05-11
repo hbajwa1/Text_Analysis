@@ -38,6 +38,7 @@ the `OCC_TITLE` variable in the dataset and isolate Construction and
 Real Estate job types only.
 
 ``` r
+# Data Import
 text_data <- read_csv("Data/occupation_titles.csv.zip", show_col_types = FALSE)
 ```
 
@@ -47,7 +48,14 @@ text_data <- read_csv("Data/occupation_titles.csv.zip", show_col_types = FALSE)
 ``` r
 # Sample data
 occupation_titles <- text_data$oes_master.OCC_TITLE
+```
 
+I used ChatGPT to create an exhaustive list of occupation titles
+associated with the Construction sector. Then, I use `regex` function in
+R to match construction sector tiltes from the `occupation_titles`
+dataset.
+
+``` r
 # Define regular expressions to match Construction sector occupation titles
 construction_regex <- "(?i)(Architect|Building Contractor|Building Inspector|Building Maintenance Technician|Building Surveyor|Carpenter|Concrete Finisher|Construction Equipment Operator|Construction Laborer|Construction Manager|Construction Project Manager|Construction Superintendent|Crane Operator|Drywaller|Electrician|Environmental Engineer|Estimator|Fire Sprinkler Installer|Flooring Installer|General Contractor|Glazier|Heavy Equipment Operator|HVAC Technician|Interior Designer|Ironworker|Landscape Architect|Landscaper|Mason|Painter|Pipefitter|Plumber|Project Engineer|Real Estate Agent|Roofing Contractor|Roofer|Scaffolder|Sheet Metal Worker|Structural Engineer|Surveyor|Tiler|Welder)"
 
@@ -57,4 +65,52 @@ construction_occupations <- unique(grep(construction_regex, occupation_titles, v
 
 # View the extracted occupation titles
 #construction_occupations
+
+# Display the matched occupations in a table
+knitr::kable(data.frame(construction_occupations), col.names = c("Construction Occupations"))
 ```
+
+| Construction Occupations                                                   |
+|:---------------------------------------------------------------------------|
+| Construction Managers                                                      |
+| Architectural and Engineering Managers                                     |
+| Cost Estimators                                                            |
+| Computer Network Architects                                                |
+| Architecture and Engineering Occupations                                   |
+| Architects, Except Landscape and Naval                                     |
+| Landscape Architects                                                       |
+| Surveyors                                                                  |
+| Environmental Engineers                                                    |
+| Architectural and Civil Drafters                                           |
+| Environmental Engineering Technicians                                      |
+| Architecture Teachers, Postsecondary                                       |
+| Fine Artists, Including Painters, Sculptors, and Illustrators              |
+| Interior Designers                                                         |
+| Brickmasons and Blockmasons                                                |
+| Stonemasons                                                                |
+| Carpenters                                                                 |
+| Cement Masons and Concrete Finishers                                       |
+| Construction Laborers                                                      |
+| Operating Engineers and Other Construction Equipment Operators             |
+| Electricians                                                               |
+| Glaziers                                                                   |
+| Painters, Construction and Maintenance                                     |
+| Plumbers, Pipefitters, and Steamfitters                                    |
+| Plasterers and Stucco Masons                                               |
+| Roofers                                                                    |
+| Sheet Metal Workers                                                        |
+| Helpers–Brickmasons, Blockmasons, Stonemasons, and Tile and Marble Setters |
+| Helpers–Carpenters                                                         |
+| Helpers–Electricians                                                       |
+| Helpers–Painters, Paperhangers, Plasterers, and Stucco Masons              |
+| Helpers–Pipelayers, Plumbers, Pipefitters, and Steamfitters                |
+| Construction and Building Inspectors                                       |
+| Refractory Materials Repairers, Except Brickmasons                         |
+| Welders, Cutters, Solderers, and Brazers                                   |
+| Cabinetmakers and Bench Carpenters                                         |
+| Painters, Transportation Equipment                                         |
+| Helpers–Roofers                                                            |
+| Marine Engineers and Naval Architects                                      |
+| Database Administrators and Architects                                     |
+| Environmental Engineering Technologists and Technicians                    |
+| Database Architects                                                        |
